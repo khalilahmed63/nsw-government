@@ -1,0 +1,57 @@
+trigger:
+  branches:
+    include:
+      - develop
+      - release   
+variables:
+  ${{ if and(eq(variables['Build.Reason'], 'IndividualCI'), eq(variables['Build.SourceBranch'], 'refs/heads/main')) }}:
+    resourceGroupName: DSI-SPD-ODR-IHB-RGP-001
+    environmentName: 'AIS PROD'
+    environmentAbbreviation: prd
+    serviceConnection: 'TfNSW - DSI-ODRE-DevOps-Prod'
+    poolName: 'odre-ais-agent-linux'
+    webAppName: 'app-spd-iotc-001'
+   
+    parameterFileName: parameters.prd.json
+    drop_name: "prd"
+  ${{ elseif and(eq(variables['Build.Reason'], 'IndividualCI'), eq(variables['Build.SourceBranch'], 'refs/heads/release')) }}:
+    resourceGroupName: DSI-SST-ODR-IOTC-RGP-001
+    environmentName: 'AIS SIT'
+    environmentAbbreviation: sit
+    serviceConnection:  'TfNSW - DSI-ODRE-DevOps-NonProd'
+    poolName: 'odre-ais-agent-linux'
+    webAppName: 'app-sst-iotc-001'
+    parameterFileName: parameters.sit.json
+    parametersFile: bicep-logic-app-conn.parameters-sit.json
+    drop_name: "sit"
+  ${{ elseif and(eq(variables['Build.Reason'], 'IndividualCI'), eq(variables['Build.SourceBranch'], 'refs/heads/develop')) }}:
+    resourceGroupName: DSI-SDV-ODR-IOTC-RGP-001
+    environmentName: 'AIS DEV'
+    environmentAbbreviation: dev
+    serviceConnection:  'TfNSW - DSI-ODRE-DevOps-NonProd'
+    poolName: 'odre-ais-agent-linux'
+    webAppName: 'app-sdv-iotc-001'
+    parameterFileName: parameters.dev.json
+    drop_name: "sdv"
+ 
+    
+resources:
+  repositories:
+    - repository: azure-integration-platform
+      type: git
+      name: ODRE Enterprise - AnyCloud/azure-integration-platform
+      ref: feature/VRS
+  pipelines:
+  - pipeline: pr-pipeline
+    source: iot-capability-frontend-webapp-PR-CI
+
+extends:
+  template: .pipelines/templates/application/web-app/cd-application-web-app-nodejs.yaml@azure-integration-platform
+  parameters:
+    artifactName: 'drop-${{ variables.drop_name }}'
+    webAppName: '${{ variables.webAppName }}'
+    poolName: '${{ variables.poolName }}'
+    environmentName: '${{ variables.environmentName }}'
+    artifactLocation: pr-pipeline
+    serviceConnection: '${{ variables.serviceConnection }}'
+    resourceGroup: '${{ variables.resourceGroupName }}'

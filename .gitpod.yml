@@ -1,0 +1,18 @@
+image:
+  file: .gitpod.Dockerfile
+
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - eamodio.gitlens
+
+tasks:
+  - init: |
+      npm install -g npm@latest
+      npm install -g vercel
+      yarn install
+    command: |
+      npm run start
+ports:
+  - port: 3000
+    onOpen: open-preview

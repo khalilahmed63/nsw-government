@@ -1,0 +1,48 @@
+# Node.js with React
+# Build a Node.js project that uses React.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger: 
+   - develop
+   - release
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  ${{ if and(eq(variables['Build.Reason'], 'IndividualCI'), eq(variables['Build.SourceBranch'], 'refs/heads/main')) }}:
+    config_name: ".env.prd"
+    drop_name: "prd"
+  ${{ elseif and(eq(variables['Build.Reason'], 'IndividualCI'), eq(variables['Build.SourceBranch'], 'refs/heads/release')) }}:
+    config_name: ".env.sit"
+    drop_name: "sit"
+  ${{ elseif and(eq(variables['Build.Reason'], 'IndividualCI'), eq(variables['Build.SourceBranch'], 'refs/heads/develop')) }}:
+    config_name: ".env.sdv"
+    drop_name: "sdv"
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
+  displayName: 'Install Node.js'
+
+
+- script: |
+    mv "config/${{ variables.config_name }}" .env
+  displayName: 'config file'
+
+- script: |
+    yarn install
+  displayName: 'dependencies'
+
+- script: |
+    yarn build
+  displayName: 'build'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: 'build'
+    artifact: 'drop-${{ variables.drop_name }}'
+    publishLocation: 'pipeline'
+  displayName: 'publish'

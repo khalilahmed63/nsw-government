@@ -1,0 +1,32 @@
+name: iot_frontend_webapp_ci_$(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r) 
+trigger: none
+  
+variables:
+  ${{ if and(eq(variables['Build.Reason'], 'IndividualCI'), eq(variables['Build.SourceBranch'], 'refs/heads/main')) }}:
+    config_name: ".env.prd"
+    drop_name: "prd"
+  ${{ elseif and(eq(variables['Build.Reason'], 'IndividualCI'), eq(variables['Build.SourceBranch'], 'refs/heads/release')) }}:
+    config_name: ".env.sit"
+    drop_name: "sit"
+    
+  ${{ elseif and(eq(variables['Build.Reason'], 'IndividualCI'), eq(variables['Build.SourceBranch'], 'refs/heads/develop')) }}:
+    config_name: ".env.sdv"
+    drop_name: "sdv"
+  ${{ else }}:
+    config_name: ".env.sdv"
+    drop_name: "sdv"
+  
+resources:
+  repositories:
+    - repository: azure-integration-platform
+      type: git
+      name: ODRE Enterprise - AnyCloud/azure-integration-platform
+      ref: feature/VRS
+
+extends:
+  template: .pipelines/templates/application/web-app/ci-application-web-app-nodejs.yaml@azure-integration-platform
+  parameters:
+    webAppBuildPath: $(Build.SourcesDirectory)/
+    vmImage:  ubuntu-latest
+    artifactName: 'drop-${{ variables.drop_name }}'
+    configName: '${{ variables.config_name }}'
