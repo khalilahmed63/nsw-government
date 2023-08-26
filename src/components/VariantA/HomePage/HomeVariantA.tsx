@@ -26,12 +26,14 @@ export default function HomeVariantA(props: any) {
               <Link to="/devices">
                 <div className="border border-[#2E808E] shadow-md shadow-[#2E808E] hover:shadow-lg hover:shadow-[#2E808E] duration-300 rounded border-b-4 p-4 w-60 h-32 sm:mr-4 relative flex flex-col justify-between">
                   <LoadingOverlay
-                    visible={props?.deviceLoading}
+                    // visible={props?.deviceLoading}
+                    visible={props?.loading}
                     overlayBlur={2}
                     className="!z-0"
                   />
                   <p className="text-4xl">
-                    {props?.devicesCount?.count?.devices?.total || 0}
+                    {/* {props?.devicesCount?.count?.devices?.total || 0} */}
+                    {props?.data.devicesCount || 0}
                   </p>
                   <div className="flex justify-between">
                     <p className="text-sm font-bold mt-2">Total devices</p>
