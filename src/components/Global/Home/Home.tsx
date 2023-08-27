@@ -21,10 +21,10 @@ export default function HomePage() {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  const MockApi = process.env.REACT_APP_API_Articles;
+  const MockApi = process.env.REACT_APP_API_MockApi;
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${"mock-api"}`);
+      const response = await axios.get(`${"MockApi"}`);
       setData(response?.data);
       setLoading(false);
     } catch (error) {
