@@ -91,7 +91,7 @@ export default function HomePage() {
   return (
     <SecuredRoute>
       <HomeVariantA
-        // devicesCount={devicesCount}
+        // devicesCount={fetchMockApi}
         // deviceLoading={deviceLoading}
         // projectsCount={projectsCount}
         // projectLoading={projectLoading}
@@ -105,3 +105,6 @@ export default function HomePage() {
     </SecuredRoute>
   );
 }
+
+
+
