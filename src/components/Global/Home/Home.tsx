@@ -18,13 +18,13 @@ export default function HomePage() {
   // const [projectLoading, setProjectLoading] = useState(true);
   // const [vendorLoading, setVendorLoading] = useState(true);
   // const [deviceGroupLoading, setdeviceGroupLoading] = useState(true);
-  
+
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-
+  const fetchArticleAPI = process.env.REACT_APP_API_Articles;
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${'mock-api'}`);
+      const response = await axios.get(`${"mock-api"}`);
       setData(response?.data);
       setLoading(false);
     } catch (error) {
