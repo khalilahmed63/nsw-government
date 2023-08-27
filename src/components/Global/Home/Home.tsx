@@ -9,6 +9,7 @@ export default function HomePage() {
   // const fetchProjectsCountAPI = process.env.REACT_APP_API_PROJECTS_COUNT;
   // const fetchVendorsCountAPI = process.env.REACT_APP_API_VENDORS_COUNT;
   // const fetchDeviceGroupsCountAPI = process.env.REACT_APP_API_DEVICE_GROUPS_COUNT;
+  const [data, setData] = useState([]);
 
   // const [devicesCount, setDeviceCount] = useState<any | null>(null);
   // const [projectsCount, setProjectsCount] = useState<any | null>(null);
@@ -20,7 +21,6 @@ export default function HomePage() {
   // const [deviceGroupLoading, setdeviceGroupLoading] = useState(true);
 
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
   const MockApi = process.env.REACT_APP_API_MockApi;
   const fetchData = async () => {
     try {
