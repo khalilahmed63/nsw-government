@@ -24,13 +24,18 @@ export default function HomePage() {
   const [data, setData] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${"fetchMockApi"}`);
-      setData(response?.data);
-      setLoading(false);
-      console.log("API Response:", response?.data);
+      if (fetchMockApi) {
+        const response = await axios.get(fetchMockApi);
+        setData(response?.data);
+        setLoading(false);
+        console.log("API Response:", response?.data);
+      } else {
+        console.log("fetchMockApi is undefined");
+        setLoading(false);
+      }
     } catch (error) {
       console.log(error);
-      setLoading(true);
+      setLoading(false);
     }
   };
 
