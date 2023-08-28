@@ -34,6 +34,7 @@ export default function HomeVariantA(props: any) {
                   <p className="text-4xl">
                     {/* {props?.devicesCount?.count?.devices?.total || 0} */}
                     {props?.data.devicesCount || 0}
+                    {console.log("Props Data",props.data)}
                   </p>
                   <div className="flex justify-between">
                     <p className="text-sm font-bold mt-2">Total devices</p>
@@ -52,7 +53,8 @@ export default function HomeVariantA(props: any) {
                     className="!z-0"
                   />
                   <p className="text-4xl">
-                    {props?.devicesCount?.count?.devices?.offline || 0}
+                    {/* {props?.devicesCount?.count?.devices?.offline || 0} */}
+                    {props?.data.devicesCount || 0}
                   </p>
                   <div className="flex justify-between">
                     <p className="text-sm font-bold mt-2">Offline devices</p>
