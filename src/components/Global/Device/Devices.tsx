@@ -19,6 +19,19 @@ export default function Devices() {
   const [vendors, setVendors] = useState<any>([]);
   const [projects, setProjects] = useState<any>([]);
   const [deviceGroups, setDeviceGroups] = useState<any>([]);
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`${"s"}`);
+      setData(response?.data);
+      setLoading(false);
+      console.log("API Response:", response?.data);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
 
   // const fetchProjects = async () => {
   //   setLoading(true);
@@ -117,7 +130,7 @@ export default function Devices() {
   return (
     <SecuredRoute>
       <DevicesVariantA
-        devices={devices}
+        // devices={devices}
         loading={loading}
         projectList={projectList}
         deviceGroupList={deviceGroupList}
