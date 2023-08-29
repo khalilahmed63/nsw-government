@@ -6,11 +6,11 @@ import SecuredRoute from "../SecureRoute/SecuredRoute";
 import DevicesVariantA from "../../VariantA/Devices/DevicesVariantA";
 
 export default function Devices() {
-  const vendorsAPI = process.env.REACT_APP_API_VENDORS;
-  const projectsAPI = process.env.REACT_APP_API_PROJECTS;
-  const deviceGroupsAPI = process.env.REACT_APP_API_DEVICE_GROUPS;
+  // const vendorsAPI = process.env.REACT_APP_API_VENDORS;
+  // const projectsAPI = process.env.REACT_APP_API_PROJECTS;
+  // const deviceGroupsAPI = process.env.REACT_APP_API_DEVICE_GROUPS;
   const fetchActivitiesAPI = process.env.REACT_APP_API_ACTIVITIES;
-  const fetchDevicesCountsAPI = process.env.REACT_APP_API_DEVICES_COUNT;
+  // const fetchDevicesCountsAPI = process.env.REACT_APP_API_DEVICES_COUNT;
 
   const [devices, setDevices] = useState<any>([]);
   const [page, setPage] = useState(1);
@@ -20,33 +20,33 @@ export default function Devices() {
   const [projects, setProjects] = useState<any>([]);
   const [deviceGroups, setDeviceGroups] = useState<any>([]);
 
-  const fetchProjects = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(`${projectsAPI}?page=${page}&limit=20`);
-      setError(false);
-      setProjects(response?.data);
-      setLoading(false);
-    } catch (error) {
-      // console.log(error, "error");
-      setError(true);
-    }
-  };
+  // const fetchProjects = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await axios.get(`${projectsAPI}?page=${page}&limit=20`);
+  //     setError(false);
+  //     setProjects(response?.data);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     // console.log(error, "error");
+  //     setError(true);
+  //   }
+  // };
 
-  const fetchDeviceGroups = async () => {
-    const response = await axios.get(`${deviceGroupsAPI}`);
-    setDeviceGroups(response.data);
-  };
+  // const fetchDeviceGroups = async () => {
+  //   const response = await axios.get(`${deviceGroupsAPI}`);
+  //   setDeviceGroups(response.data);
+  // };
 
-  const fetchDevicesCounts = async () => {
-    const response = await axios.get(`${fetchDevicesCountsAPI}`);
-    console.log(response, "fetchDevicesCountsAPI - response");
-  };
+  // const fetchDevicesCounts = async () => {
+  //   const response = await axios.get(`${fetchDevicesCountsAPI}`);
+  //   console.log(response, "fetchDevicesCountsAPI - response");
+  // };
 
-  const fetchVendors = async () => {
-    const apiResponse = await axios.get(`${vendorsAPI}`);
-    setVendors(apiResponse.data);
-  };
+  // const fetchVendors = async () => {
+  //   const apiResponse = await axios.get(`${vendorsAPI}`);
+  //   setVendors(apiResponse.data);
+  // };
 
   const projectList = projects?.map((project: any) => ({
     value: project?.projectId,
@@ -103,10 +103,10 @@ export default function Devices() {
 
   useEffect(() => {
     fetchActivities({});
-    fetchProjects();
-    fetchDeviceGroups();
-    fetchVendors();
-    fetchDevicesCounts();
+    // fetchProjects();
+    // fetchDeviceGroups();
+    // fetchVendors();
+    // fetchDevicesCounts();
   }, []);
 
   useEffect(() => {
