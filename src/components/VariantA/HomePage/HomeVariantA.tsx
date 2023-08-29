@@ -9,6 +9,7 @@ import WifiOffIcon from "@mui/icons-material/WifiOff";
 import WifiIcon from "@mui/icons-material/Wifi";
 
 export default function HomeVariantA(props: any) {
+
   return (
     <>
       <div className="p-6 flex justify-between ">
@@ -33,7 +34,7 @@ export default function HomeVariantA(props: any) {
                   />
                   <p className="text-4xl">
                     {/* {props?.devicesCount?.count?.devices?.total || 0} */}
-                    {props?.data.devicesCount || 0}
+                    {props?.data?.devicesCount?.count?.devices?.total || 0}
                     {console.log("Props Data",props.data)}
                   </p>
                   <div className="flex justify-between">
@@ -54,7 +55,7 @@ export default function HomeVariantA(props: any) {
                   />
                   <p className="text-4xl">
                     {/* {props?.devicesCount?.count?.devices?.offline || 0} */}
-                    {props?.data.devicesCount || 0}
+                    {props?.data.devicesCount?.count?.devices?.offline || 0}
                   </p>
                   <div className="flex justify-between">
                     <p className="text-sm font-bold mt-2">Offline devices</p>
@@ -70,7 +71,7 @@ export default function HomeVariantA(props: any) {
                     className="!z-0"
                   />
                   <p className="text-4xl">
-                    {props?.devicesCount?.count?.devices?.online || 0}
+                    {props?.data?.devicesCount?.count?.devices?.online || 0|| 0}
                   </p>
                   <div className="flex justify-between">
                     <p className="text-sm font-bold mt-2">Online devices</p>
@@ -89,7 +90,7 @@ export default function HomeVariantA(props: any) {
                     overlayBlur={2}
                     className="!z-0"
                   />
-                  <p className="text-4xl">{props?.vendorsCount || 0}</p>
+                  <p className="text-4xl">{props?.data?.vendorsCount || 0}</p>
                   <div className="flex justify-between">
                     <p className="text-sm font-bold mt-2">Vendors</p>
                     <AccountBoxOutlinedIcon
@@ -106,7 +107,7 @@ export default function HomeVariantA(props: any) {
                     overlayBlur={2}
                     className="!z-0"
                   />
-                  <p className="text-4xl">{props?.projectsCount || 0}</p>
+                  <p className="text-4xl">{props?.data?.projectsCount || 0}</p>
                   <div className="flex justify-between">
                     <p className="text-sm font-bold mt-2">Projects</p>
                     <InsertDriveFileOutlinedIcon
@@ -123,7 +124,7 @@ export default function HomeVariantA(props: any) {
                     overlayBlur={2}
                     className="!z-0"
                   />
-                  <p className="text-4xl">{props?.deviceGroupsCount || 0}</p>
+                  <p className="text-4xl">{props?.data?.deviceGroupsCount || 0}</p>
                   <div className="flex justify-between">
                     <p className="text-sm font-bold mt-2">Device models</p>
                     <LanOutlinedIcon
