@@ -130,7 +130,7 @@ export default function Devices() {
   return (
     <SecuredRoute>
       <DevicesVariantA
-        // devices={devices}
+        devices={devices}
         loading={loading}
         projectList={projectList}
         deviceGroupList={deviceGroupList}
