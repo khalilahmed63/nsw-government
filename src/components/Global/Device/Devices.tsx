@@ -83,7 +83,7 @@ export default function Devices() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${fetchDataApi}${
+        `${fetchActivities}${
           data?.activePage ? `?offset=${data.activePage}` : ""
         }${data?.state?.length > 0 ? `&status=${data.state}` : ""}${
           data?.project?.length > 0 ? `&projectId=${data.project}` : ""
@@ -118,6 +118,7 @@ export default function Devices() {
   useEffect(() => {
     fetchActivities({});
     // fetchProjects();
+    fetchData()
     // fetchDeviceGroups();
     // fetchVendors();
     // fetchDevicesCounts();
