@@ -11,6 +11,7 @@ export default function Devices() {
   // const deviceGroupsAPI = process.env.REACT_APP_API_DEVICE_GROUPS;
   const fetchActivitiesAPI = process.env.REACT_APP_API_ACTIVITIES;
   // const fetchDevicesCountsAPI = process.env.REACT_APP_API_DEVICES_COUNT;
+  const fetchDataApi = process.env.REACT_APP_API_NewMockApi;
 
   const [devices, setDevices] = useState<any>([]);
   const [page, setPage] = useState(1);
@@ -23,7 +24,7 @@ export default function Devices() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${"s"}`);
+      const response = await axios.get(`${fetchDataApi}`);
       setData(response?.data);
       setLoading(false);
       console.log("API Response:", response?.data);
@@ -82,7 +83,7 @@ export default function Devices() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${fetchActivitiesAPI}${
+        `${fetchDataApi}${
           data?.activePage ? `?offset=${data.activePage}` : ""
         }${data?.state?.length > 0 ? `&status=${data.state}` : ""}${
           data?.project?.length > 0 ? `&projectId=${data.project}` : ""
