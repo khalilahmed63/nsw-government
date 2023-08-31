@@ -309,21 +309,21 @@ export default function DevicesVariantA(props: any) {
                     <>
                       {deviceSortData.map((item: any) => (
                         <tr
-                          key={item?.data?.DeviceId}
+                          key={item?.DeviceId}
                           className="cursor-pointer"
                           onClick={() => {
-                            navigate(`/devices/${item?.data?.ActivityId}`);
+                            navigate(`/devices/${item?.ActivityId}`);
                           }}
                         >
-                          <td>{item?.data?.DeviceId}</td>
-                          <td>{item?.data?.ProjectName || item?.data?.ProjectId}</td>
-                          <td>{item?.data?.VendorName || item?.data?.VendorId}</td>
+                          <td>{item?.DeviceId}</td>
+                          <td>{item?.ProjectName || item?.ProjectId}</td>
+                          <td>{item?.VendorName || item?.VendorId}</td>
                           <td>
-                            {item?.data?.DeviceGroupName || item?.data?.DeviceGroupId}
+                            {item?.DeviceGroupName || item?.DeviceGroupId}
                           </td>
                           <td>{item?.Status}</td>
                           {/* <td>{item?.Timestamp?.slice(0, 10)}</td> */}
-                          <td>{item?.data?.Timestamp}</td>
+                          <td>{item?.Timestamp}</td>
                           {/* <td>
                         {dayjs(item?.Timestamp).format(
                           "DD/MMM/YYYY (hh:mm:ss a)"
@@ -336,20 +336,20 @@ export default function DevicesVariantA(props: any) {
                     <>
                       {projectSortData.map((item: any) => (
                         <tr
-                          key={item?.data?.DeviceId}
+                          key={item?.DeviceId}
                           className="cursor-pointer"
                           onClick={() => {
-                            navigate(`/devices/${item?.data.ActivityId}`);
+                            navigate(`/devices/${item?.ActivityId}`);
                           }}
                         >
-                          <td>{item?.data?.DeviceId}</td>
-                          <td>{item?.data?.ProjectName || item?.ProjectId}</td>
-                          <td>{item?.data?.VendorName || item?.data?.VendorId}</td>
+                          <td>{item?.DeviceId}</td>
+                          <td>{item?.ProjectName || item?.ProjectId}</td>
+                          <td>{item?.VendorName || item?.VendorId}</td>
                           <td>
-                            {item?.data?.DeviceGroupName || item?.data?.DeviceGroupId}
+                            {item?.DeviceGroupName || item?.DeviceGroupId}
                           </td>
                           <td>{item?.Status}</td>
-                          <td>{item?.data?.Timestamp}</td>
+                          <td>{item?.Timestamp}</td>
                         </tr>
                       ))}
                     </>
@@ -357,20 +357,20 @@ export default function DevicesVariantA(props: any) {
                     <>
                       {vendorSortData.map((item: any) => (
                         <tr
-                          key={item?.data?.DeviceId}
+                          key={item?.DeviceId}
                           className="cursor-pointer"
                           onClick={() => {
-                            navigate(`/devices/${item?.data?.ActivityId}`);
+                            navigate(`/devices/${item?.ActivityId}`);
                           }}
                         >
-                          <td>{item?.data?.DeviceId}</td>
-                          <td>{item?.data?.ProjectName || item?.data?.ProjectId}</td>
-                          <td>{item?.data?.VendorName || item?.data?.VendorId}</td>
+                          <td>{item?.DeviceId}</td>
+                          <td>{item?.ProjectName || item?.ProjectId}</td>
+                          <td>{item?.VendorName || item?.VendorId}</td>
                           <td>
-                            {item?.data?.DeviceGroupName || item?.data?.DeviceGroupId}
+                            {item?.DeviceGroupName || item?.DeviceGroupId}
                           </td>
                           <td>{item?.Status}</td>
-                          <td>{item?.data?.Timestamp}</td>
+                          <td>{item?.Timestamp}</td>
                         </tr>
                       ))}
                     </>
@@ -378,10 +378,10 @@ export default function DevicesVariantA(props: any) {
                     <>
                       {deviceGroupSortData.map((item: any) => (
                         <tr
-                          key={item?.data.DeviceId}
+                          key={item?.DeviceId}
                           className="cursor-pointer"
                           onClick={() => {
-                            navigate(`/devices/${item?.data.ActivityId}`);
+                            navigate(`/devices/${item?.ActivityId}`);
                           }}
                         >
                           <td>{item?.DeviceId}</td>
