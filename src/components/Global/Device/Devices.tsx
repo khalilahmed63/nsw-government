@@ -15,7 +15,7 @@ export default function Devices() {
 
   const [devices, setDevices] = useState<any>([]);
   const [page, setPage] = useState(1);
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   const [vendors, setVendors] = useState<any>([]);
   const [projects, setProjects] = useState<any>([]);
@@ -27,7 +27,7 @@ export default function Devices() {
       const response = await axios.get(`${fetchDataApi}`);
       setData(response?.data);
       setLoading(false);
-      console.log("API Response:", response?.data);
+      console.log("API Response", response?.data);
     } catch (error) {
       console.log(error);
       setLoading(false);
