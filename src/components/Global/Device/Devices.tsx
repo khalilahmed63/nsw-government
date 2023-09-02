@@ -20,7 +20,7 @@ export default function Devices() {
   const [vendors, setVendors] = useState<any>([]);
   const [projects, setProjects] = useState<any>([]);
   const [deviceGroups, setDeviceGroups] = useState<any>([]);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<any>([]);
 
   const fetchData = async () => {
     try {
@@ -138,6 +138,7 @@ export default function Devices() {
         deviceGroupList={deviceGroupList}
         vendorList={vendorList}
         fetchActivities={fetchActivities}
+        data={data}
       />
     </SecuredRoute>
   );

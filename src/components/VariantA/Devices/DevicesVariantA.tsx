@@ -14,7 +14,7 @@ import { AiOutlineSortAscending } from "react-icons/ai";
 import dayjs from "dayjs";
 import { BsSortNumericDown } from "react-icons/bs";
 
-export default function DevicesVariantA(props: any) {
+export default function DevicesVariantA(props:any) {
   const [sort, setSort] = useState<any>("");
   const [search, setSearch] = useState<any>([]);
   const [result, setResult] = useState<any>([]);
@@ -23,6 +23,7 @@ export default function DevicesVariantA(props: any) {
   const [project, setProject] = useState<any>([]);
   const [vendor, setVendor] = useState<any>([]);
   const [activePage, setPage] = useState(1);
+  
 
   const navigate = useNavigate();
   const today = new Date();
@@ -59,7 +60,7 @@ export default function DevicesVariantA(props: any) {
   useEffect(() => {
     fetchData();
   }, [activePage]);
-
+   console.log(props.data,'props.data');
   return (
     <>
       <div className="p-6 flex justify-between ">
@@ -307,7 +308,7 @@ export default function DevicesVariantA(props: any) {
                 <tbody>
                   {sort === "" ? (
                     <>
-                      {deviceSortData.map((item: any) => (
+                      {props?.data?.map((item: any) => (
                         <tr
                           key={item?.DeviceId}
                           className="cursor-pointer"
