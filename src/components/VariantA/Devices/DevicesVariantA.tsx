@@ -442,7 +442,7 @@ export default function DevicesVariantA(props:any) {
                 </tbody>
               </Table>
             </div>
-            {props?.devices.length > 0 ? (
+            {props?.data.length > 0 ? (
               <>
                 <div className="py-10 flex justify-center">
                   <Pagination value={activePage} onChange={setPage} total={1} />
