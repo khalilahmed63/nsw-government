@@ -27,7 +27,7 @@ export default function Devices() {
       const response = await axios.get(`${fetchDataApi}`);
       setData(response?.data);
       setLoading(false);
-      console.log("API Response", response?.data);
+      // console.log("API Response", response?.data);
     } catch (error) {
       console.log(error);
       setLoading(false);

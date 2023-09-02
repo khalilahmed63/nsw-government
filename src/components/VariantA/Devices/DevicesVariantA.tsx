@@ -60,7 +60,7 @@ export default function DevicesVariantA(props:any) {
   useEffect(() => {
     fetchData();
   }, [activePage]);
-   console.log(props.data,'props.data');
+  //  console.log(props.data,'props.data');
   return (
     <>
       <div className="p-6 flex justify-between ">

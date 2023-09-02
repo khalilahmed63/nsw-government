@@ -35,7 +35,7 @@ export default function HomeVariantA(props: any) {
                   <p className="text-4xl">
                     {/* {props?.devicesCount?.count?.devices?.total || 0} */}
                     {props?.data?.devicesCount?.count?.devices?.total || 0}
-                    {console.log("Props Data",props.data)}
+                    {/* {console.log("Props Data",props.data)} */}
                   </p>
                   <div className="flex justify-between">
                     <p className="text-sm font-bold mt-2">Total devices</p>
