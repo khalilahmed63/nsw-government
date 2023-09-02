@@ -3,7 +3,6 @@ import { Card, LoadingOverlay, Table } from "@mantine/core";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import dayjs from "dayjs";
 
 export default function ActivitiesVariantA(props: any) {
   const WIP = process.env.REACT_APP_WIP;

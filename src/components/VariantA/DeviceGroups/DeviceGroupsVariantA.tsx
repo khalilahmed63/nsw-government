@@ -1,5 +1,4 @@
 import { Button, Table, Select, Badge, Box, Tooltip } from "@mantine/core";
-import { IconChevronDown } from "tabler-icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import LoadingLottie from "../../Global/Lottie/LoadingLottie";

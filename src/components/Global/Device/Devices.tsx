@@ -11,7 +11,7 @@ export default function Devices() {
   // const deviceGroupsAPI = process.env.REACT_APP_API_DEVICE_GROUPS;
   const fetchActivitiesAPI = process.env.REACT_APP_API_ACTIVITIES;
   // const fetchDevicesCountsAPI = process.env.REACT_APP_API_DEVICES_COUNT;
-  const fetchDataApi = process.env.REACT_APP_API_NewMockApi;
+  const fetchDataApi = process.env.REACT_APP_API_Devices_MockApi;
 
   const [devices, setDevices] = useState<any>([]);
   const [page, setPage] = useState(1);
