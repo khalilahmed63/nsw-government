@@ -28,29 +28,29 @@ export default function DevicesVariantA(props:any) {
   const navigate = useNavigate();
   const today = new Date();
 
-  const fetchData = () => {
-    props.fetchActivities({
-      activePage,
-      state,
-      project,
-      vendor,
-      deviceGroup,
-    });
-  };
+  // const fetchData = () => {
+  //   props.fetchActivities({
+  //     activePage,
+  //     state,
+  //     project,
+  //     vendor,
+  //     deviceGroup,
+  //   });
+  // };
 
-  const deviceSortData = [...props?.devices]?.sort((a: any, b: any) =>
+  const deviceSortData = [...props?.data]?.sort((a: any, b: any) =>
     a.DeviceId.localeCompare(b.DeviceId)
   );
-  const projectSortData = [...props?.devices]?.sort((a: any, b: any) =>
+  const projectSortData = [...props?.data]?.sort((a: any, b: any) =>
     a.ProjectName.localeCompare(b.ProjectName)
   );
-  const vendorSortData = [...props?.devices]?.sort((a: any, b: any) =>
+  const vendorSortData = [...props?.data]?.sort((a: any, b: any) =>
     a.VendorName.localeCompare(b.VendorName)
   );
-  const deviceGroupSortData = [...props?.devices]?.sort((a: any, b: any) =>
+  const deviceGroupSortData = [...props?.data]?.sort((a: any, b: any) =>
     a.DeviceGroupName.localeCompare(b.DeviceGroupName)
   );
-  const stateSortData = [...props?.devices]?.sort((a: any, b: any) =>
+  const stateSortData = [...props?.data]?.sort((a: any, b: any) =>
     a.Status.localeCompare(b.Status)
   );
   // const updateSortData = props?.devices?.sort((a: any, b: any) =>
@@ -58,7 +58,7 @@ export default function DevicesVariantA(props:any) {
   // );
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
   }, [activePage]);
   //  console.log(props.data,'props.data');
   return (
@@ -112,7 +112,7 @@ export default function DevicesVariantA(props:any) {
                   }
                   className="mr-4 border-2 border-[#202E61] bg-[#202E61] hover:bg-[#26477B] text-white"
                   onClick={() => {
-                    fetchData();
+                    // fetchData();
                   }}
                 >
                   Apply
@@ -127,7 +127,7 @@ export default function DevicesVariantA(props:any) {
                     setVendor([]);
                     setDeviceGroup([]);
                     setSearch(false);
-                    props.fetchActivities({});
+                    // props.fetchActivities({});
                   }}
                 >
                   Clear filters
@@ -442,7 +442,7 @@ export default function DevicesVariantA(props:any) {
                 </tbody>
               </Table>
             </div>
-            {props?.data.length > 0 ? (
+            {props?.data?.length > 0 ? (
               <>
                 <div className="py-10 flex justify-center">
                   <Pagination value={activePage} onChange={setPage} total={1} />

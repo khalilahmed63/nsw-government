@@ -79,28 +79,28 @@ export default function Devices() {
     label: deviceGroup.data.deviceGroupName || "Unknown",
   }));
 
-  const fetchActivities = async (data: any) => {
-    setLoading(true);
-    try {
-      const response = await axios.get(
-        `${fetchActivities}${
-          data?.activePage ? `?offset=${data.activePage}` : ""
-        }${data?.state?.length > 0 ? `&status=${data.state}` : ""}${
-          data?.project?.length > 0 ? `&projectId=${data.project}` : ""
-        }${
-          data?.deviceGroup?.length > 0
-            ? `&deviceGroupId=${data.deviceGroup}`
-            : ""
-        }${data?.vendor?.length > 0 ? `&vendorId=${data.vendor} ` : ""}`
-      );
-      setLoading(false);
-      setDevices(response?.data?.data);
-      // console.log(response, "response");
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
+  // const fetchActivities = async (data: any) => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await axios.get(
+  //       `${fetchActivities}${
+  //         data?.activePage ? `?offset=${data.activePage}` : ""
+  //       }${data?.state?.length > 0 ? `&status=${data.state}` : ""}${
+  //         data?.project?.length > 0 ? `&projectId=${data.project}` : ""
+  //       }${
+  //         data?.deviceGroup?.length > 0
+  //           ? `&deviceGroupId=${data.deviceGroup}`
+  //           : ""
+  //       }${data?.vendor?.length > 0 ? `&vendorId=${data.vendor} ` : ""}`
+  //     );
+  //     setLoading(false);
+  //     setDevices(response?.data?.data);
+  //     // console.log(response, "response");
+  //   } catch (error) {
+  //     console.log(error);
+  //     setLoading(false);
+  //   }
+  // };
 
   const handleInfiniteScroll = async () => {
     try {
@@ -116,7 +116,7 @@ export default function Devices() {
   };
 
   useEffect(() => {
-    fetchActivities({});
+    // fetchActivities({});
     // fetchProjects();
     fetchData()
     // fetchDeviceGroups();
@@ -130,16 +130,16 @@ export default function Devices() {
   }, []);
 
   return (
-    <SecuredRoute>
+    // <SecuredRoute>
       <DevicesVariantA
         devices={devices}
         loading={loading}
         projectList={projectList}
         deviceGroupList={deviceGroupList}
         vendorList={vendorList}
-        fetchActivities={fetchActivities}
+        // fetchActivities={fetchActivities}
         data={data}
       />
-    </SecuredRoute>
+    // </SecuredRoute>
   );
 }

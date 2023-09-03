@@ -12,7 +12,6 @@ export default function ActivitiesVariantA(props: any) {
   const [activitiesLoading, setActivitiesLoading] = useState(true);
 
   const navigate = useNavigate();
-  const today = new Date();
 
   const fetchActivities = async (data: any) => {
     try {
