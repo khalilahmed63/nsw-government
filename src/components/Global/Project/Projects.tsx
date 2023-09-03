@@ -5,9 +5,9 @@ import SecuredRoute from "../SecureRoute/SecuredRoute";
 import ProjectsVariantA from "../../VariantA/Projects/ProjectsVariantA";
 
 export default function Projects() {
-  const vendorsAPI = process.env.REACT_APP_API_VENDORS;
-  const projectsAPI = process.env.REACT_APP_API_PROJECTS;
-  const deviceGroupsAPI = process.env.REACT_APP_API_DEVICE_GROUPS;
+  // const vendorsAPI = process.env.REACT_APP_API_VENDORS;
+  // const projectsAPI = process.env.REACT_APP_API_PROJECTS;
+  // const deviceGroupsAPI = process.env.REACT_APP_API_DEVICE_GROUPS;
 
   const [page, setPage] = useState(1);
   const [error, setError] = useState(false);
@@ -16,28 +16,28 @@ export default function Projects() {
   const [projects, setProjects] = useState<any>([]);
   const [deviceGroups, setDeviceGroups] = useState<any>([]);
 
-  const fetchProjects = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(`${projectsAPI}?page=${page}&limit=20`);
-      setError(false);
-      setProjects(response?.data);
-      setLoading(false);
-    } catch (error) {
-      // console.log(error, "error");
-      setError(true);
-    }
-  };
+  // const fetchProjects = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await axios.get(`${projectsAPI}?page=${page}&limit=20`);
+  //     setError(false);
+  //     setProjects(response?.data);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     // console.log(error, "error");
+  //     setError(true);
+  //   }
+  // };
 
-  const fetchDeviceGroups = async () => {
-    const response = await axios.get(`${deviceGroupsAPI}`);
-    setDeviceGroups(response.data);
-  };
+  // const fetchDeviceGroups = async () => {
+  //   const response = await axios.get(`${deviceGroupsAPI}`);
+  //   setDeviceGroups(response.data);
+  // };
 
-  const fetchVendors = async () => {
-    const apiResponse = await axios.get(`${vendorsAPI}`);
-    setVendors(apiResponse.data);
-  };
+  // const fetchVendors = async () => {
+  //   const apiResponse = await axios.get(`${vendorsAPI}`);
+  //   setVendors(apiResponse.data);
+  // };
 
   const projectList = projects?.map((project: any) => ({
     value: project?.projectId,
@@ -73,9 +73,9 @@ export default function Projects() {
   }, []);
 
   useEffect(() => {
-    fetchProjects();
-    fetchDeviceGroups();
-    fetchVendors();
+    // fetchProjects();
+    // fetchDeviceGroups();
+    // fetchVendors();
   }, []);
 
   return (
@@ -87,7 +87,7 @@ export default function Projects() {
         vendorList={vendorList}
         loading={loading}
         error={error}
-        refetch={fetchProjects}
+        // refetch={fetchProjects}
       />
     </SecuredRoute>
   );

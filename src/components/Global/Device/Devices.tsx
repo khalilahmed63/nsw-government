@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import axios from "axios";
-import SecuredRoute from "../SecureRoute/SecuredRoute";
+// import SecuredRoute from "../SecureRoute/SecuredRoute";
 import DevicesVariantA from "../../VariantA/Devices/DevicesVariantA";
 
 export default function Devices() {
