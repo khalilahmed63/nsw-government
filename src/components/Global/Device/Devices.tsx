@@ -67,12 +67,10 @@ export default function Devices() {
     label: project?.data?.projectName || "Unknown",
   }));
 
-  const vendorList = vendors.map((vendor: any) => ({
+  const vendorList = vendors?.map((vendor: any) => ({
     value: vendor?.vendorId,
     label: vendor?.data?.vendorName || "Unknown",
   }));
-
-  console.log(vendors, "vendors");
 
   const deviceGroupList = deviceGroups?.map((deviceGroup: any) => ({
     value: deviceGroup.deviceGroupId,
