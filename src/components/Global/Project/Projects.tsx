@@ -9,6 +9,7 @@ export default function Projects() {
   // const projectsAPI = process.env.REACT_APP_API_PROJECTS;
   // const deviceGroupsAPI = process.env.REACT_APP_API_DEVICE_GROUPS;
   const fetchDataApi = process.env.REACT_APP_API_Project_MockApi;
+  const fetchRecordApi = process.env.REACT_APP_API_Project_Record;
 
   const [page, setPage] = useState(1);
   const [error, setError] = useState(false);
@@ -17,6 +18,7 @@ export default function Projects() {
   const [projects, setProjects] = useState<any>([]);
   const [deviceGroups, setDeviceGroups] = useState<any>([]);
   const [data, setData] = useState <any>([])
+  const [record, setRecord] = useState<any>([])
 
   // const fetchProjects = async () => {
   //   setLoading(true);
@@ -44,7 +46,10 @@ export default function Projects() {
       setError(true)
     }
   }
-
+//  const fetchRecord = async () =>{
+//   const response = await axios.get(`${fetchRecordApi}`)
+//   setRecord(response?.data)
+//  }
   // const fetchDeviceGroups = async () => {
   //   const response = await axios.get(`${deviceGroupsAPI}`);
   //   setDeviceGroups(response.data);
@@ -92,7 +97,8 @@ export default function Projects() {
     // fetchProjects();
     // fetchDeviceGroups();
     // fetchVendors();
-    fetchData()
+    // fetchRecord();
+    fetchData();
   }, []);
 
   return (
@@ -105,6 +111,7 @@ export default function Projects() {
         loading={loading}
         error={error}
         data={data}
+        // setRecord={data}
         // refetch={fetchProjects}
       />
     </SecuredRoute>
