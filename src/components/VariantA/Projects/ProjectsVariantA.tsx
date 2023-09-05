@@ -1,5 +1,4 @@
 import { Button, Table, Select } from "@mantine/core";
-import { IconChevronDown } from "tabler-icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { BsExclamationCircle } from "react-icons/bs";
@@ -30,6 +29,8 @@ export default function ProjectsVariantA(props: any) {
     }
     return null;
   };
+
+  console.log(props.data,'props.data')
 
   return (
     <>
@@ -77,7 +78,7 @@ export default function ProjectsVariantA(props: any) {
                 <div className="px-6">
                   {result ? <></> : <></>}
                   <>
-                    {props?.projects.length > 0 ? (
+                    {props?.data?.length > 0 ? (
                       <>
                         <div className="mb-4 flex items-start">
                           <div className="">
@@ -152,10 +153,10 @@ export default function ProjectsVariantA(props: any) {
                         <>
                           {search ? (
                             <>
-                              {result?.map((item: any) => (
+                              {props.data?.map((item: any) => (
                                 <>
                                   <Table
-                                    key={item.id}
+                                    key={item?.data?.id}
                                     verticalSpacing="xs"
                                     fontSize="sm"
                                     highlightOnHover
@@ -259,7 +260,7 @@ export default function ProjectsVariantA(props: any) {
                                           <p className="font-bold">Offline</p>
                                         </td>
                                       </tr>
-                                      {records?.map((item: any) => (
+                                      {props?.data?.map((item: any) => (
                                         <tr>
                                           <td className="w-[16.66%]">
                                             <Link to="/vendors/5c29d5e9-f5b7-4959-a48c-7f2714c79822">
@@ -291,10 +292,10 @@ export default function ProjectsVariantA(props: any) {
                             </>
                           ) : (
                             <>
-                              {props?.projects.map((item: any) => (
+                              {props?.data?.map((item: any) => (
                                 <>
                                   <Table
-                                    key={item.id}
+                                    key={item?.id}
                                     verticalSpacing="xs"
                                     fontSize="sm"
                                     highlightOnHover
@@ -307,26 +308,26 @@ export default function ProjectsVariantA(props: any) {
                                             Project name
                                           </p>
                                           <p>
-                                            {item?.data?.projectName || "-"}
+                                            {item?.projectName || "-"}
                                           </p>
                                         </td>
                                         <td className="w-[16.66%]">
                                           <p className="font-bold !text-[#2E808E]">
                                             Sub branch
                                           </p>
-                                          <p>{item?.data?.subBranch || "-"}</p>
+                                          <p>{item?.subBranch || "-"}</p>
                                         </td>
                                         <td className="w-[16.66%]">
                                           <p className="font-bold !text-[#2E808E]">
                                             Team
                                           </p>
-                                          <p>{item?.data?.team || "-"}</p>
+                                          <p>{item?.team || "-"}</p>
                                         </td>
                                         <td className="w-[16.66%]">
                                           <p className="font-bold !text-[#2E808E]">
                                             Project status
                                           </p>
-                                          {item?.data?.projectState ? (
+                                          {item?.projectState ? (
                                             <p className=" text-black bg-green-200 text-xs w-fit mt-1 px-2 rounded-full">
                                               Active
                                             </p>
@@ -341,11 +342,11 @@ export default function ProjectsVariantA(props: any) {
                                             Last connected
                                           </p>
                                           <p>
-                                            {item?.data?.updatedTimestamp?.slice(
+                                            {item?.updatedTimestamp?.slice(
                                               0,
                                               10
                                             ) ||
-                                              item?.data?.createdTimestamp?.slice(
+                                              item?.createdTimestamp?.slice(
                                                 0,
                                                 10
                                               )}
@@ -353,7 +354,7 @@ export default function ProjectsVariantA(props: any) {
                                         </td>
                                         <td className="w-[16.66%]">
                                           <Link
-                                            to={`/projects/${item.data?.entityId}`}
+                                            to={`/projects/${item.entityId}`}
                                           >
                                             <Button className="border-2 border-[#202E61] rounded-md text-[#202E61] hover:text-white hover:bg-[#202E61]">
                                               Manage
@@ -365,7 +366,7 @@ export default function ProjectsVariantA(props: any) {
                                   </Table>
 
                                   <Table
-                                    key={item.id}
+                                    key={item?.data?.id}
                                     verticalSpacing="xs"
                                     fontSize="sm"
                                     highlightOnHover
