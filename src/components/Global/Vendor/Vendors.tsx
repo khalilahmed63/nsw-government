@@ -6,7 +6,7 @@ import SecuredRoute from "../SecureRoute/SecuredRoute";
 import VendorsVariantA from "../../VariantA/Vendors/VendorsVariantA";
 
 export default function Vendors() {
-  const vendorsAPI = process.env.REACT_APP_API_VENDORS;
+  const vendorsAPI = process.env.REACT_APP_API_Vendor_MockApi;
 
   const [page, setPage] = useState(1);
   const [error, setError] = useState(false);
@@ -26,6 +26,8 @@ export default function Vendors() {
       // console.log(error, "error");
     }
   };
+
+  
 
   useEffect(() => {
     fetchVendors();
@@ -54,7 +56,7 @@ export default function Vendors() {
         vendors={vendors}
         loading={loading}
         error={error}
-        refetch={fetchVendors}
+        // refetch={fetchVendors}
       />
     </SecuredRoute>
   );

@@ -254,10 +254,10 @@ export default function VendorsVariantA(props: any) {
                         ) : (
                           <>
                             {props?.vendors?.map((item: any) => (
-                              <tr key={item?.data?.entityId}>
-                                <td>{item?.data?.vendorName}</td>
+                              <tr key={item?.entityId}>
+                                <td>{item?.vendorName}</td>
                                 <td>
-                                  {item?.data?.vendorStatus === true ? (
+                                  {item?.vendorStatus === true ? (
                                     <p className=" text-black bg-green-200 text-xs w-fit mt-1 px-2 rounded-full">
                                       Active
                                     </p>
