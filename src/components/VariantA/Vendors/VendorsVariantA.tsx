@@ -146,10 +146,10 @@ export default function VendorsVariantA(props: any) {
                             {result?.length > 0 && (
                               <>
                                 {result?.map((item: any) => (
-                                  <tr key={item?.data?.entityId}>
-                                    <td>{item?.data?.vendorName}</td>
+                                  <tr key={item?.entityId}>
+                                    <td>{item?.vendorName}</td>
                                     <td>
-                                      {item?.data?.vendorStatus === true ? (
+                                      {item?.vendorStatus === true ? (
                                         <p className=" text-black bg-green-200 text-xs w-fit mt-1 px-2 rounded-full">
                                           Active
                                         </p>
@@ -160,7 +160,7 @@ export default function VendorsVariantA(props: any) {
                                       )}
                                     </td>
                                     <td>
-                                      {item?.data?.deviceGroup?.map(
+                                      {item?.deviceGroup?.map(
                                         (item: any) => (
                                           <Link
                                             to={`/deviceGroups/${item.deviceGroupId}`}
@@ -173,20 +173,20 @@ export default function VendorsVariantA(props: any) {
                                       )}
                                     </td>
                                     <td>
-                                      {item?.data?.devices || (
+                                      {item?.devices || (
                                         <p className="ml-6">-</p>
                                       )}
                                     </td>
                                     <td>
-                                      {item?.data?.devices || (
+                                      {item?.devices || (
                                         <p className="ml-6">-</p>
                                       )}
                                     </td>
                                     <td>
                                       <div>
-                                        {item?.data?.project?.length > 0 ? (
+                                        {item?.project?.length > 0 ? (
                                           <>
-                                            {item?.data?.project?.map(
+                                            {item?.project?.map(
                                               (item: any) => (
                                                 <Tooltip
                                                   label="Shared Projects"
@@ -225,12 +225,12 @@ export default function VendorsVariantA(props: any) {
                                       </div>
                                     </td>
                                     <td>
-                                      {item?.data?.updatedTimestamp?.slice(
+                                      {item?.updatedTimestamp?.slice(
                                         0,
                                         10
                                       ) || (
                                         <p className="text-center">
-                                          {item?.data?.createdTimestamp?.slice(
+                                          {item?.createdTimestamp?.slice(
                                             0,
                                             10
                                           )}
@@ -239,7 +239,7 @@ export default function VendorsVariantA(props: any) {
                                     </td>
                                     <td className="flex justify-end">
                                       <Link
-                                        to={`/vendors/${item?.data?.entityId}`}
+                                        to={`/vendors/${item?.entityId}`}
                                       >
                                         <Button className="border-2 border-[#202E61] rounded-md text-[#202E61] hover:text-white hover:bg-[#202E61]">
                                           Manage
@@ -268,7 +268,7 @@ export default function VendorsVariantA(props: any) {
                                   )}
                                 </td>
                                 <td>
-                                  {item?.data?.deviceGroup?.map((item: any) => (
+                                  {item?.deviceGroup?.map((item: any) => (
                                     <Link
                                       to={`/deviceGroups/${item.deviceGroupId}`}
                                     >
@@ -277,20 +277,20 @@ export default function VendorsVariantA(props: any) {
                                   ))}
                                 </td>
                                 <td>
-                                  {item?.data?.devices || (
+                                  {item?.devices || (
                                     <p className="ml-6">-</p>
                                   )}
                                 </td>
                                 <td>
-                                  {item?.data?.devices || (
+                                  {item?.devices || (
                                     <p className="ml-6">-</p>
                                   )}
                                 </td>
                                 <td>
                                   <div>
-                                    {item?.data?.project?.length > 0 ? (
+                                    {item?.project?.length > 0 ? (
                                       <>
-                                        {item?.data?.project?.map(
+                                        {item?.project?.map(
                                           (item: any) => (
                                             <Tooltip
                                               label="Shared Projects"
@@ -329,12 +329,12 @@ export default function VendorsVariantA(props: any) {
                                   </div>
                                 </td>
                                 <td>
-                                  {item?.data?.updatedTimestamp?.slice(
+                                  {item?.updatedTimestamp?.slice(
                                     0,
                                     10
                                   ) || (
                                     <p className="text-center">
-                                      {item?.data?.createdTimestamp?.slice(
+                                      {item?.createdTimestamp?.slice(
                                         0,
                                         10
                                       )}
@@ -342,7 +342,7 @@ export default function VendorsVariantA(props: any) {
                                   )}
                                 </td>
                                 <td className="flex justify-end">
-                                  <Link to={`/vendors/${item?.data?.entityId}`}>
+                                  <Link to={`/vendors/${item?.entityId}`}>
                                     <Button className="border-2 border-[#202E61] rounded-md text-[#202E61] hover:text-white hover:bg-[#202E61]">
                                       Manage
                                     </Button>
