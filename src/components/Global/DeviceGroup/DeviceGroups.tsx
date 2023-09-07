@@ -5,7 +5,7 @@ import SecuredRoute from "../SecureRoute/SecuredRoute";
 import DeviceGroupsVariantA from "../../VariantA/DeviceGroups/DeviceGroupsVariantA";
 
 export default function DeviceGroups() {
-  const vendorsAPI = process.env.REACT_APP_API_VENDORS;
+  // const vendorsAPI = process.env.REACT_APP_API_VENDORS;
   const deviceGroupsAPI = process.env.REACT_APP_API_DEVICE_GROUPS;
 
   const [page, setPage] = useState(1);
@@ -13,13 +13,14 @@ export default function DeviceGroups() {
   const [loading, setLoading] = useState(true);
   const [vendors, setVendors] = useState<any>([]);
   const [deviceGroups, setDeviceGroups] = useState<any>([]);
+  const [data, setData] = useState<any>([])
 
   const fetchDeviceGroups = async () => {
     setLoading(true);
     try {
       const response = await axios.get(`${deviceGroupsAPI}`);
       setLoading(false);
-      setDeviceGroups(response.data);
+      setData(response.data);
       setError(false);
       // setDeviceGroups((res: any) => [...res, ...response.data]);
     } catch (error) {
@@ -28,10 +29,10 @@ export default function DeviceGroups() {
     }
   };
 
-  const fetchVendors = async () => {
-    const apiResponse = await axios.get(`${vendorsAPI}`);
-    setVendors(apiResponse.data);
-  };
+  // const fetchVendors = async () => {
+  //   const apiResponse = await axios.get(`${vendorsAPI}`);
+  //   setVendors(apiResponse.data);
+  // };
 
   const deviceGroupList = deviceGroups?.map((deviceGroup: any) => ({
     value: deviceGroup.deviceGroupId,
@@ -45,7 +46,7 @@ export default function DeviceGroups() {
 
   useEffect(() => {
     fetchDeviceGroups();
-    fetchVendors();
+    // fetchVendors();
   }, []);
 
   const handleInfiniteScroll = async () => {
@@ -74,7 +75,8 @@ export default function DeviceGroups() {
         vendorList={vendorList}
         loading={loading}
         error={error}
-        refetch={fetchDeviceGroups}
+        data={data}
+        // refetch={fetchDeviceGroups}
       />
     </SecuredRoute>
   );
