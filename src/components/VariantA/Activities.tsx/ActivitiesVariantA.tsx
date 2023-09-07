@@ -8,41 +8,53 @@ export default function ActivitiesVariantA(props: any) {
   const WIP = process.env.REACT_APP_WIP;
   const fetchActivitiesAPI = process.env.REACT_APP_API_ACTIVITIES;
 
-  const [activities, setActivities] = useState<any | null | object>(null);
+  // const [activities, setActivities] = useState<any | null | object>(null);
+  const [setData, data] = useState <any>([])
   const [activitiesLoading, setActivitiesLoading] = useState(true);
+  const [error, setError] = useState(false);
+
 
   const navigate = useNavigate();
 
-  const fetchActivities = async (data: any) => {
-    try {
-      const response = await axios.get(
-        `${fetchActivitiesAPI}?type=${data.type}${
-          data.projectId ? `&projectId=${data.projectId} ` : ""
-        } ${data.deviceGroupId ? `&deviceGroupId=${data.deviceGroupId}` : ""} ${
-          data.vendorId ? `&vendorId=${data.vendorId} ` : ""
-        }`
-      );
-      setActivitiesLoading(false);
-      setActivities(response?.data?.data);
-      // console.log(response, "response");
-    } catch (error) {
-      console.log(error);
-      setActivitiesLoading(false);
-    }
-  };
-
+  // const fetchActivities = async (data: any) => {
+  //   try {
+  //     const response = await axios.get(
+  //       `${fetchActivitiesAPI}?type=${data.type}${
+  //         data.projectId ? `&projectId=${data.projectId} ` : ""
+  //       } ${data.deviceGroupId ? `&deviceGroupId=${data.deviceGroupId}` : ""} ${
+  //         data.vendorId ? `&vendorId=${data.vendorId} ` : ""
+  //       }`
+  //     );
+  //     setActivitiesLoading(false);
+  //     setActivities(response?.data?.data);
+  //     // console.log(response, "response");
+  //   } catch (error) {
+  //     console.log(error);
+  //     setActivitiesLoading(false);
+  //   }
+  // };
+   const fetchActivities = async () => {
+    try{
+    const response = await axios.get(`${fetchActivitiesAPI}`);
+    setData(response.data);
+    setActivitiesLoading(false);
+   }catch(error){
+    setActivitiesLoading(false);
+    setError(true);
+   }
+  }
   useEffect(() => {
-    fetchActivities({
-      type: props?.type,
-      projectId: props?.projectId,
-      deviceGroupId: props?.deviceGroupId,
-      vendorId: props?.vendorId,
-    });
+    fetchActivities()
+    //   type: props?.type,
+    //   projectId: props?.projectId,
+    //   deviceGroupId: props?.deviceGroupId,
+    //   vendorId: props?.vendorId,
+    // });
   }, []);
 
   return (
     <>
-      {activities?.length > 0 && (
+      {data?.length > 0 && (
         <>
           <p className="text-lg">Activity Log</p>
           <Card
@@ -79,7 +91,7 @@ export default function ActivitiesVariantA(props: any) {
                 </thead>
 
                 <tbody>
-                  {activities?.map((item: any) => (
+                  {props?.data?.map((item: any) => (
                     <tr
                       key={item?.DeviceId}
                       className="cursor-pointer"
