@@ -25,6 +25,7 @@ export default function DeviceGroupVariantA(props: any) {
     }
     return null;
   };
+  console.log(props,'data');
   return (
     <>
       {props?.error ? (
@@ -62,7 +63,7 @@ export default function DeviceGroupVariantA(props: any) {
               </div>
             ) : (
               <div>
-                {props?.deviceGroups.length > 0 ? (
+                {props?.data?.length > 0 ? (
                   <div className="px-6">
                     <div className="mb-4 flex items-end">
                       <Select
@@ -147,17 +148,17 @@ export default function DeviceGroupVariantA(props: any) {
                         <tbody>
                           {search ? (
                             <>
-                              {result.length > 0 && (
+                              {result.data.length > 0 && (
                                 <>
                                   {result?.map((item: any) => (
-                                    <tr key={item?.data?.id}>
+                                    <tr key={item?.id}>
                                       <td>
-                                        {item?.data?.deviceGroupName || (
+                                        {item?.deviceGroupName || (
                                           <p className="text-center">-</p>
                                         )}
                                       </td>
                                       <td>
-                                        {item?.data?.deviceGroupStatus ===
+                                        {item?.deviceGroupStatus ===
                                         true ? (
                                           <p className=" text-black bg-green-200 text-xs w-fit mt-1 px-2 rounded-full">
                                             Active
@@ -169,7 +170,7 @@ export default function DeviceGroupVariantA(props: any) {
                                         )}
                                       </td>
                                       <td>
-                                        {item?.data?.vendorName || (
+                                        {item?.vendorName || (
                                           <p className="text-center">-</p>
                                         )}
                                       </td>
@@ -255,15 +256,15 @@ export default function DeviceGroupVariantA(props: any) {
                             </>
                           ) : (
                             <>
-                              {props?.deviceGroups?.map((item: any) => (
+                              {props?.data?.map((item: any) => (
                                 <tr key={item?.data?.id}>
                                   <td>
-                                    {item?.data?.deviceGroupName || (
+                                    {item?.deviceGroupName || (
                                       <p className="text-center">-</p>
                                     )}
                                   </td>
                                   <td>
-                                    {item?.data?.deviceGroupStatus === true ? (
+                                    {item?.deviceGroupStatus === true ? (
                                       <p className=" text-black bg-green-200 text-xs w-fit mt-1 px-2 rounded-full">
                                         Active
                                       </p>
@@ -274,7 +275,7 @@ export default function DeviceGroupVariantA(props: any) {
                                     )}
                                   </td>
                                   <td>
-                                    {item?.data?.vendorName || (
+                                    {item?.vendorName || (
                                       <p className="text-center">-</p>
                                     )}
                                   </td>
