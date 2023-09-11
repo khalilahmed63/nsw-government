@@ -159,25 +159,25 @@ export default function DeviceGroupFormVariantA(props: any) {
     setOpenedDeleteModal(true);
   };
 
-  const fetchVendors = async () => {
-    const apiResponse = await axios.get(`${vendorsAPI}`);
-    setVendors(apiResponse?.data);
-  };
+  // const fetchVendors = async () => {
+  //   const apiResponse = await axios.get(`${vendorsAPI}`);
+  //   setVendors(apiResponse?.data);
+  // };
 
-  const vendorList = vendors?.map((vendor: any) => ({
-    value: vendor?.vendorId,
-    label: vendor?.data?.vendorName || "Unknown",
-  }));
+  // const vendorList = vendors?.map((vendor: any) => ({
+  //   value: vendor?.vendorId,
+  //   label: vendor?.data?.vendorName || "Unknown",
+  // }));
 
-  const selectedvendorName = vendorList?.find(
-    (obj: any) => obj?.id === vendorId
-  );
-  vendorName = selectedvendorName?.label;
+  // const selectedvendorName = vendorList?.find(
+  //   (obj: any) => obj?.id === vendorId
+  // );
+  // vendorName = selectedvendorName?.label;
 
-  useEffect(() => {
-    setError(props?.error?.response?.status === 500 ? true : false);
-    fetchVendors();
-  }, []);
+  // useEffect(() => {
+  //   setErvendorListror(props?.error?.response?.status === 500 ? true : false);
+  //   fetchVendors();
+  // }, []);
 
   return (
     <>
@@ -512,7 +512,8 @@ export default function DeviceGroupFormVariantA(props: any) {
                             readOnly={!props?.edit}
                             onChange={setVendorId}
                             className="sm:w-full sm:mr-4 h-14"
-                            data={vendorList}
+                            data={[]}
+                            // data={vendorList}
                           />
                         </div>
                         <div className="flex items-center w-full mt-8">
