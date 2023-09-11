@@ -39,7 +39,7 @@ export default function Projects() {
       const response = await axios.get(`${fetchDataApi}`);
       setError(false);
       setData(response?.data)
-      console.log(response?.data)
+      // console.log(response?.data)
       setLoading(false);
     }catch(error) {
       console.log(error,"error");

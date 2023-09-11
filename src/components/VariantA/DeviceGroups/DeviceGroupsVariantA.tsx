@@ -25,7 +25,7 @@ export default function DeviceGroupVariantA(props: any) {
     }
     return null;
   };
-  console.log(props,'data');
+
   return (
     <>
       {props?.error ? (
@@ -158,8 +158,7 @@ export default function DeviceGroupVariantA(props: any) {
                                         )}
                                       </td>
                                       <td>
-                                        {item?.deviceGroupStatus ===
-                                        true ? (
+                                        {item?.deviceGroupStatus === true ? (
                                           <p className=" text-black bg-green-200 text-xs w-fit mt-1 px-2 rounded-full">
                                             Active
                                           </p>

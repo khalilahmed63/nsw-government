@@ -30,7 +30,7 @@ export default function ProjectsVariantA(props: any) {
     return null;
   };
 
-  console.log(props.data,'props.data')
+  // console.log(props.data,'props.data')
 
   return (
     <>
