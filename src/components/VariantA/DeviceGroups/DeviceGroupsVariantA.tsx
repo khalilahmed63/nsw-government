@@ -147,7 +147,7 @@ export default function DeviceGroupVariantA(props: any) {
                         </thead>
                         <tbody>
                           {search ? (
-                            <>
+                            <>  
                               {result.data.length > 0 && (
                                 <>
                                   {result?.map((item: any) => (
