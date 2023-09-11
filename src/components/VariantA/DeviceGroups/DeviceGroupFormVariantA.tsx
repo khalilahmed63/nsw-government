@@ -161,11 +161,11 @@ export default function DeviceGroupFormVariantA(props: any) {
 
   const fetchVendors = async () => {
     const apiResponse = await axios.get(`${vendorsAPI}`);
-    setVendors(apiResponse.data);
+    setVendors(apiResponse?.data);
   };
 
   const vendorList = vendors?.map((vendor: any) => ({
-    value: vendor.vendorId,
+    value: vendor?.vendorId,
     label: vendor?.data?.vendorName || "Unknown",
   }));
 
