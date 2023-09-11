@@ -15,7 +15,6 @@ export default function DeviceDetailsVariantA(props: any) {
         ) : (
           <div className="px-6">
             <div className="mt-4">
-              {" "}
               <WorkInProgress />
             </div>
           </div>

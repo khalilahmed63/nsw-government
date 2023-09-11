@@ -21,6 +21,7 @@ export default function ProjectDetails() {
   const fetchProjectDetails = async () => {
     setLoading(true);
     try {
+      // const response = await axios.get(`${projectsAPI}/${projectId}`);
       const response = await axios.get(`${projectsAPI}/${projectId}`);
       setData(response?.data);
       setLoading(false);

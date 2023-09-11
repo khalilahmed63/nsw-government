@@ -50,11 +50,11 @@ export default function DeviceDetails() {
 
   return (
     <SecuredRoute>
-      {WIP === "true" ? (
+      {/* {WIP === "true" ? (
         <WorkInProgress />
-      ) : (
+      ) : ( */}
         <DeviceDetailsVariantA data={data} loading={loading} />
-      )}
+      {/* )} */}
     </SecuredRoute>
   );
 }
