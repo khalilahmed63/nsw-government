@@ -14,7 +14,7 @@ export default function ProjectDetails() {
 
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState(0);
-  const [data, setData] = useState<any | null>(null);
+  const [data, setData] = useState<any> ([]);
   const [animation, setAnimation] = useState(false);
   const [animationType, setAnimationType] = useState<any>(false);
 
@@ -24,6 +24,7 @@ export default function ProjectDetails() {
       // const response = await axios.get(`${projectsAPI}/${projectId}`);
       const response = await axios.get(`${projectsAPI}/${projectId}`);
       setData(response?.data);
+      console.log(response?.data)
       setLoading(false);
     } catch (error) {
       console.log(error);

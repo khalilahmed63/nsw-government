@@ -44,18 +44,18 @@ export default function ProjectFormVariantA(props: any) {
   const { classes } = useStyles();
   const location = useLocation();
 
-  const storageAccountAPI = process.env.REACT_APP_API_STORAGE_ACCOUNT;
+  // const storageAccountAPI = process.env.REACT_APP_API_STORAGE_ACCOUNT;
 
-  const [sampleFile, setSampleFile] = useState<any | null>(
-    props?.data?.sampleFile
-  );
-  const [storageRequirement, setStorageRequirement] = useState<any | null>(
-    props?.data?.storageRequirement
-  );
-  const [projectEndDate, setProjectEndDate] = useState<Date | null>(
-    props?.data?.createdTimestamp
-    // props?.data?.projectEndDate || props?.data?.createdTimestamp
-  );
+  // const [sampleFile, setSampleFile] = useState<any | null>(
+  //   props?.data?.sampleFile
+  // );
+  // const [storageRequirement, setStorageRequirement] = useState<any | null>(
+  //   props?.data?.storageRequirement
+  // );
+  // const [projectEndDate, setProjectEndDate] = useState<Date | null>(
+  //   props?.data?.createdTimestamp
+  //   // props?.data?.projectEndDate || props?.data?.createdTimestamp
+  // );
 
   const [applicationCriticality, setApplicationCriticality] = useState<
     any | null
@@ -79,13 +79,13 @@ export default function ProjectFormVariantA(props: any) {
   const [warningModal, setWarningModal] = useState(false);
   const [opened, { open, close }] = useDisclosure(false);
 
-  function handleFileUpload(event: any) {
-    if (validateImage(event)) {
-      setSampleFile(event);
-    } else {
-      setSampleFile(null);
-    }
-  }
+  // function handleFileUpload(event: any) {
+  //   if (validateImage(event)) {
+  //     setSampleFile(event);
+  //   } else {
+  //     setSampleFile(null);
+  //   }
+  // }
 
   function validateImage(file: any) {
     // Check the file size
@@ -181,7 +181,7 @@ export default function ProjectFormVariantA(props: any) {
       projectState: location.pathname.endsWith("/new")
         ? false
         : props?.data?.projectState,
-      projectEndDate: location.pathname.endsWith("/new") ? "" : projectEndDate,
+      // projectEndDate: location.pathname.endsWith("/new") ? "" : projectEndDate,
       division: `${
         location.pathname.endsWith("/new") ? "test" : props?.data?.division
       }`,
@@ -282,41 +282,42 @@ export default function ProjectFormVariantA(props: any) {
     }),
     onSubmit: (values) => {
       console.log(errors);
-      handleSaveAction(values);
+      // handleSaveAction(values);
     },
     enableReinitialize: true,
   });
   const { values, handleChange, handleSubmit, handleBlur, errors, touched } =
     formik;
 
-  const handleSaveAction = (formValue: any) => {
-    formValue.projectEndDate = projectEndDate;
-    formValue.sampleFile = sampleFile;
-    open();
-  };
+  // const handleSaveAction = (formValue: any) => {
+  //   formValue.projectEndDate = projectEndDate;
+  //   formValue.sampleFile = sampleFile;
+  //   open();
+  // };
 
-  const fetchstorageAccounts = async () => {
-    const response = await axios.get(`${storageAccountAPI}`);
-    setStorageAccounts(response.data);
-  };
+  // const fetchstorageAccounts = async () => {
+  //   const response = await axios.get(`${storageAccountAPI}`);
+  //   setStorageAccounts(response.data);
+  // };
 
-  const fetchschema = async () => {
-    const response = await axios.get(
-      `https://dlssdviotc001.blob.core.windows.net/templates/telemetric-message-schema-d2c/TfNSW_DSI_IOTC_Mandatory_Message_Sample_forDevice_to_cloud_messaging_for_IOT_Device_R1-0.json?sp=r&st=2023-06-19T14:00:00Z&se=2028-06-09T14:00:00Z&spr=https&sv=2022-11-02&sr=b&sig=pYFF55EZp%2B4QjgAG6WOKZHyu2czefr7IbGG5ewezgqY%3D`
-    );
-    // setStorageAccounts(response.data);
-    console.log(response, "schema response");
-  };
+  // const fetchschema = async () => {
+  //   const response = await axios.get(
+  //     `https://dlssdviotc001.blob.core.windows.net/templates/telemetric-message-schema-d2c/TfNSW_DSI_IOTC_Mandatory_Message_Sample_forDevice_to_cloud_messaging_for_IOT_Device_R1-0.json?sp=r&st=2023-06-19T14:00:00Z&se=2028-06-09T14:00:00Z&spr=https&sv=2022-11-02&sr=b&sig=pYFF55EZp%2B4QjgAG6WOKZHyu2czefr7IbGG5ewezgqY%3D`
+  //   );
+  //   // setStorageAccounts(response.data);
+  //   console.log(response, "schema response");
+  // };
 
   const handelDelete = () => {
     setOpenedDeleteModal(true);
   };
 
-  useEffect(() => {
-    fetchstorageAccounts();
-    fetchschema();
-  }, []);
+  // useEffect(() => {
+  //   fetchstorageAccounts();
+  //   fetchschema();
+  // }, []);
 
+  console.log(props,'data')
   return (
     <>
       {props?.animation ? (
@@ -746,9 +747,9 @@ export default function ProjectFormVariantA(props: any) {
                         <div className="flex items-center w-full mt-8">
                           <DateInput
                             rightSection={<CalendarMonthIcon />}
-                            value={projectEndDate}
+                            // value={projectEndDate}
                             label="Project end date"
-                            onChange={setProjectEndDate}
+                            // onChange={setProjectEndDate}
                             placeholder="Select project end date"
                             name="projectEndDate"
                             className="sm:w-[35%]"
@@ -1244,7 +1245,7 @@ export default function ProjectFormVariantA(props: any) {
                             <Input
                               placeholder="Select storage account"
                               name="storageRequirement"
-                              onChange={setStorageRequirement}
+                              // onChange={setStorageRequirement}
                               value={storageAccounts?.[0]?.name}
                               readOnly={true}
                             />
