@@ -1426,7 +1426,7 @@ export default function ProjectFormVariantA(props: any) {
                                           target="_blank"
                                         >
                                           <p className="text-sm">
-                                            {`${storageAccounts?.[0]?.name}/events-data/odre/raw/MQTT/3.1.1/${item?.deviceGroupName}/${props.data?.projectName}`}
+                                            {`${storageAccounts?.[0]?.name}/events-data/odre/raw/MQTT/3.1.1/${item?.deviceGroupName}/${props.projectName}`}
                                           </p>
                                         </Link>
                                         <Link
@@ -1434,7 +1434,7 @@ export default function ProjectFormVariantA(props: any) {
                                           target="_blank"
                                         >
                                           <p className="text-sm">
-                                            {`meta-data/odre/raw/MQTT/3.1.1/${item?.deviceGroupName}/${props.data?.projectName}`}
+                                            {`meta-data/odre/raw/MQTT/3.1.1/${item?.deviceGroupName}/${props.projectName}`}
                                           </p>
                                         </Link>
                                       </div>
