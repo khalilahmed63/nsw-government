@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import axios from "axios";
-import DeleteLottie from "../Lottie/DeleteLottie";
 import SecuredRoute from "../SecureRoute/SecuredRoute";
 import ProjectDetailsVariantA from "../../VariantA/Projects/ProjectDetailsVariantA";
 
@@ -13,10 +12,10 @@ export default function ProjectDetails() {
   const projectsAPI = process.env.REACT_APP_API_PROJECTS;
 
   const [loading, setLoading] = useState(true);
-  const [status, setStatus] = useState(0);
+  // const [status, setStatus] = useState(0);
   const [data, setData] = useState<any> ([]);
-  const [animation, setAnimation] = useState(false);
-  const [animationType, setAnimationType] = useState<any>(false);
+  // const [animation, setAnimation] = useState(false);
+  // const [animationType, setAnimationType] = useState<any>(false);
 
   const fetchProjectDetails = async () => {
     setLoading(true);
@@ -32,19 +31,19 @@ export default function ProjectDetails() {
     }
   };
 
-  const deleteProject = async () => {
-    setAnimationType(<DeleteLottie />);
-    try {
-      await axios.delete(`${projectsAPI}/${projectId}`);
-      setAnimation(true);
-      setTimeout(() => {
-        setAnimation(false);
-        navigate("/projects");
-      }, 2000);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const deleteProject = async () => {
+  //   setAnimationType(<DeleteLottie />);
+  //   try {
+  //     await axios.delete(`${projectsAPI}/${projectId}`);
+  //     setAnimation(true);
+  //     setTimeout(() => {
+  //       setAnimation(false);
+  //       navigate("/projects");
+  //     }, 2000);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   useEffect(() => {
     fetchProjectDetails();
@@ -54,13 +53,13 @@ export default function ProjectDetails() {
     <SecuredRoute>
       <ProjectDetailsVariantA
         projectId={projectId}
-        status={status}
-        data={data?.data}
+        // status={status}
+        data={data}
         fetch={fetchProjectDetails}
-        delete={deleteProject}
+        // delete={deleteProject}
         loading={loading}
-        animation={animation}
-        animationType={animationType}
+        // animation={animation}
+        // animationType={animationType}
       />
     </SecuredRoute>
   );

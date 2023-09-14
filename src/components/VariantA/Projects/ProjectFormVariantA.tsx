@@ -24,7 +24,6 @@ import {
   Tooltip,
   createStyles,
 } from "@mantine/core";
-import axios from "axios";
 import * as Yup from "yup";
 import ActivitiesVariantA from "../Activities.tsx/ActivitiesVariantA";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
