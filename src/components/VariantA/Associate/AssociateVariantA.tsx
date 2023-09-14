@@ -64,13 +64,13 @@ export default function AssociateVariantA(props: any) {
   //   setVendors(response.data);
   // };
 
-  const projectList = projects?.map((project: any) => ({
-    value: project.projectId,
-    label:
-      project?.data?.projectName ||
-      deviceGroup?.data?.shortProjectName ||
-      "Unknown",
-  }));
+  // const projectList = projects?.map((project: any) => ({
+  //   value: project.projectId,
+  //   label:
+  //     project?.data?.projectName ||
+  //     deviceGroup?.data?.shortProjectName ||
+  //     "Unknown",
+  // }));
 
   // const deviceGroupList = deviceGroups?.map((deviceGroup: any) => ({
   //   value: deviceGroup.deviceGroupId,
@@ -82,10 +82,10 @@ export default function AssociateVariantA(props: any) {
   //   label: vendor.data.vendorName || "Unknown",
   // }));
 
-  const filterProjects = projectList?.filter(
-    (item: any) =>
-      !props?.projects?.some((obj: any) => obj?.projectId === item?.value)
-  );
+  // const filterProjects = projectList?.filter(
+  //   (item: any) =>
+  //     !props?.projects?.some((obj: any) => obj?.projectId === item?.value)
+  // );
 
   const associatedProjects = props?.projects?.filter(
     (item: any) => item?.shared !== true
@@ -200,7 +200,7 @@ export default function AssociateVariantA(props: any) {
                     <>
                       {props?.project && (
                         <div className="flex items-center">
-                          <Select
+                          {/* <Select
                             label="Project"
                             placeholder="Select Project"
                             defaultValue=""
@@ -210,7 +210,7 @@ export default function AssociateVariantA(props: any) {
                             value={project}
                             readOnly={!props?.edit}
                             className="sm:mr-4 mb-8 w-80"
-                          />
+                          /> */}
                           <Button
                             type="button"
                             className="ml-4 mb-2 border bg-[#202E61] hover:border-[#202E61] hover:bg-transparent hover:text-[#202E61]"
