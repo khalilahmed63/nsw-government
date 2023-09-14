@@ -59,10 +59,10 @@ export default function AssociateVariantA(props: any) {
     setDeviceGroups(response.data);
   };
 
-  const fetchVendors = async () => {
-    const response = await axios.get(`${vendorsAPI}`);
-    setVendors(response.data);
-  };
+  // const fetchVendors = async () => {
+  //   const response = await axios.get(`${vendorsAPI}`);
+  //   setVendors(response.data);
+  // };
 
   const projectList = projects?.map((project: any) => ({
     value: project.projectId,
@@ -163,7 +163,7 @@ export default function AssociateVariantA(props: any) {
   useEffect(() => {
     fetchProjects();
     fetchDeviceGroups();
-    fetchVendors();
+    // fetchVendors();
   }, []);
 
   return (
