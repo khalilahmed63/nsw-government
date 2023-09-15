@@ -23,7 +23,7 @@ export default function ProjectDetails() {
       // const response = await axios.get(`${projectsAPI}/${projectId}`);
       const response = await axios.get(`${projectsAPI}/${projectId}`);
       setData(response?.data);
-      console.log(response?.data)
+      // console.log(response?.data)
       setLoading(false);
     } catch (error) {
       console.log(error);

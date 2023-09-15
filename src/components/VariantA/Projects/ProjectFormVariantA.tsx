@@ -316,7 +316,7 @@ export default function ProjectFormVariantA(props: any) {
   //   fetchschema();
   // }, []);
 
-  console.log(props,'data')
+  // console.log(props,'data')
   return (
     <>
       {props?.animation ? (

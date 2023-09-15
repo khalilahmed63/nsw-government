@@ -10,7 +10,7 @@ export default function DeviceGroupDetails() {
   const navigate = useNavigate();
   const { deviceGroupId } = useParams();
 
-  const deviceGroupsAPI = process.env.REACT_APP_API_DEVICE_GROUPS;
+  const deviceGroupsAPI = process.env.REACT_APP_API_GROPS_FORMS;
 
   const [error, setError] = useState<any>();
   const [loading, setLoading] = useState(true);
