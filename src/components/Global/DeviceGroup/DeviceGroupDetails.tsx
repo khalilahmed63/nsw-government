@@ -16,15 +16,17 @@ export default function DeviceGroupDetails() {
   const [loading, setLoading] = useState(true);
   const [animation, setAnimation] = useState(false);
   const [animationType, setAnimationtype] = useState<any>();
-  const [deviceGroupDetails, setDeviceGroupDetails] = useState<any | undefined>(
-    null
-  );
+  const [data, setData] = useState <any>()
+  // const [deviceGroupDetails, setDeviceGroupDetails] = useState<any | undefined>(
+  //   null
+  // );
 
   const fetchDeviceGroupDetails = async () => {
     setLoading(true);
     try {
       const response = await axios.get(`${deviceGroupsAPI}/${deviceGroupId}`);
-      setDeviceGroupDetails(response?.data);
+      setData(response?.data);
+      // console.log(response?.data)
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -33,23 +35,23 @@ export default function DeviceGroupDetails() {
     }
   };
 
-  const deleteDeviceGroup = async () => {
-    setAnimationtype(<DeleteLottie />);
-    try {
-      const response = await axios.delete(
-        `${deviceGroupsAPI}/${deviceGroupId}`
-      );
-      if (response?.status === 200) {
-        setAnimation(true);
-        setTimeout(() => {
-          setAnimation(false);
-          navigate("/deviceGroups");
-        }, 2000);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const deleteDeviceGroup = async () => {
+  //   setAnimationtype(<DeleteLottie />);
+  //   try {
+  //     const response = await axios.delete(
+  //       `${deviceGroupsAPI}/${deviceGroupId}`
+  //     );
+  //     if (response?.status === 200) {
+  //       setAnimation(true);
+  //       setTimeout(() => {
+  //         setAnimation(false);
+  //         navigate("/deviceGroups");
+  //       }, 2000);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   useEffect(() => {
     fetchDeviceGroupDetails();
@@ -59,13 +61,14 @@ export default function DeviceGroupDetails() {
       <SecuredRoute>
         <DeviceGroupDetailsVariantA
           deviceGroupId={deviceGroupId}
-          deviceGroupDetails={deviceGroupDetails}
-          fetch={fetchDeviceGroupDetails}
-          delete={deleteDeviceGroup}
+          // deviceGroupDetails={deviceGroupDetails}
+          // fetch={fetchDeviceGroupDetails}
+          // delete={deleteDeviceGroup}
           error={error}
           loading={loading}
           animation={animation}
           animationType={animationType}
+          data={data}
         />
       </SecuredRoute>
     );

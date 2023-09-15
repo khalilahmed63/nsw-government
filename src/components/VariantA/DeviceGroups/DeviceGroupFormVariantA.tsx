@@ -42,68 +42,70 @@ export default function DeviceGroupFormVariantA(props: any) {
 
   const location = useLocation();
 
+  // console.log(props,'data')
+
   const formik = useFormik({
     initialValues: {
       deviceGroupName: `${
         location.pathname.endsWith("/new")
           ? "testDeviceGroup"
-          : props?.data?.data?.deviceGroupName
+          : props?.data?.deviceGroupName
       }`,
       description: `${
         location.pathname.endsWith("/new")
           ? "testDeviceGroup"
-          : props?.data?.data?.description
+          : props?.data?.description
       }`,
-      vendorId: `${props?.data?.data?.vendorId || ""}`,
+      vendorId: `${props?.vendorId || ""}`,
       vendorName: vendorName,
       make: `${
-        location.pathname.endsWith("/new") ? "1999" : props?.data?.data?.make
+        location.pathname.endsWith("/new") ? "1999" : props?.data?.make
       }`,
       deviceDataSheet: `${
         location.pathname.endsWith("/new")
           ? "testDeviceGroup"
-          : props?.data?.data?.deviceDataSheet
+          : props?.data?.deviceDataSheet
       }`,
       origin: `${
         location.pathname.endsWith("/new")
           ? "testDeviceGroup"
-          : props?.data?.data?.origin
+          : props?.data?.origin
       }`,
       TNSWSecurity: location.pathname.endsWith("/new")
         ? false
-        : props?.data?.data?.TNSWSecurity,
+        : props?.data?.TNSWSecurity,
       deviceGroupStatus: location.pathname.endsWith("/new")
         ? false
-        : props?.data?.data?.deviceGroupStatus,
+        : props?.data?.deviceGroupStatus,
       projectName: `${
         location.pathname.endsWith("/new")
           ? "testDeviceGroup"
-          : props?.data?.data?.projectName
+          : props?.data?.projectName
       }`,
       additionalProject: `${
         location.pathname.endsWith("/new")
           ? "testDeviceGroup"
-          : props?.data?.data?.additionalProject
+          : props?.data?.additionalProject
       }`,
       deviceGroupProperty: `${
         location.pathname.endsWith("/new")
           ? "testDeviceGroup"
-          : props?.data?.data?.deviceGroupProperty
+          : props?.data?.deviceGroupProperty
       }`,
       expectedNumberOfDevices: `${
         location.pathname.endsWith("/new")
           ? "1000"
-          : props?.data?.data?.expectedNumberOfDevices
+          : props?.data?.expectedNumberOfDevices
       }`,
       messagesPerHour: `${
         location.pathname.endsWith("/new")
           ? "60"
-          : props?.data?.data?.messagesPerHour
+          : props?.data?.messagesPerHour
       }`,
       expectedDeviceActiveHoursPerDay: `${
         location.pathname.endsWith("/new")
           ? "24"
-          : props?.data?.data?.expectedDeviceActiveHoursPerDay
+          : props?.data?.expectedDeviceActiveHoursPerDay
       }`,
     },
     validationSchema: Yup.object().shape({
