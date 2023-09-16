@@ -4,7 +4,8 @@ export default function DeviceGroupDetailsVariantA(props: any) {
   return (
     <DeviceGroupFormVariantA
       deviceGroupId={props?.deviceGroupId}
-      data={props?.deviceGroupDetails}
+      data={props?.data}
+      // data={props?.deviceGroupDetails}
       action={props?.action}
       edit={false}
       delete={props?.delete}

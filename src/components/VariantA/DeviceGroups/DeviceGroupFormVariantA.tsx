@@ -31,7 +31,7 @@ export default function DeviceGroupFormVariantA(props: any) {
 
   const [openedDeleteModal, setOpenedDeleteModal] = useState(false);
   const [vendorId, setVendorId] = useState<any | null>(
-    props?.data?.data?.vendorId
+    props?.data?.vendorId
   );
   let vendorName;
   const [vendors, setVendors] = useState<any>([]);
