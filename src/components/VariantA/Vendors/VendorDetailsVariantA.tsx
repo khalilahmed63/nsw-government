@@ -4,7 +4,7 @@ export default function VendorDetailsVariantA(props: any) {
   return (
     <VendorFormVariantA
       vendorId={props?.vendorId}
-      data={props?.vendorDetails}
+      data={props?.data}
       action={props?.action}
       edit={false}
       delete={props?.delete}

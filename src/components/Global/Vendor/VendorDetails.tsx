@@ -15,15 +15,16 @@ export default function VendorDetails() {
   const [animation, setAnimation] = useState(false);
   const [animationType, setAnimationtype] = useState<any>();
   const [loading, setLoading] = useState(true);
-  const [vendorDetails, setvendorDetails] = useState<any | undefined>(
-    undefined
-  );
+  const [data, setData] = useState <any>()
+  // const [vendorDetails, setvendorDetails] = useState<any | undefined>(
+  //   undefined
+  // );
 
   const fetchVendorDetails = async () => {
     setLoading(true);
     try {
       const response = await axios.get(`${vendorsAPI}/${vendorId}`);
-      setvendorDetails(response?.data?.data);
+      setData(response?.data);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -55,7 +56,8 @@ export default function VendorDetails() {
     <SecuredRoute>
       <VendorDetailsVariantA
         vendorId={vendorId}
-        vendorDetails={vendorDetails}
+        // vendorDetails={vendorDetails}
+        data={data}
         fetch={fetchVendorDetails}
         delete={deleteVendor}
         animation={animation}
